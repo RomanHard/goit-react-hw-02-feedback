@@ -1,7 +1,6 @@
 import React from 'react';
 import './statistic-module.css';
 import PropTypes from 'prop-types';
-import FeedbackOptions from '../feedbackOptions/FeedbackOptions';
 
 class Statistic extends React.Component {
   state = {
