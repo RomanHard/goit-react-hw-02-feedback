@@ -2,19 +2,31 @@ import React from 'react';
 import Statistic from '../components/statistic/Statistic.js';
 import FeedbackOptions from '../components/feedbackOptions/FeedbackOptions.js';
 
-export const App = () => {
+export default class App extends React.Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
 
+  onLeaveFeedback = e => {
+    const name = e.target.name;
+    this.setState(prevState => ({
+      [name]: prevState[name] + 1,
+    }));
+  };
 
+  render() {
+    return (
+      <div>
+        <h1 className="feedback">Give Feedback</h1>
 
-  return (
-    <div>
-      <h1 className='feedback'>Give Feedback</h1>
-      
-      <FeedbackOptions options={[]} onLeaveFeedback={null} />
+        <FeedbackOptions options={[]} onLeaveFeedback={this.onLeaveFeedback} />
 
-      <h1 className='feedback'>Statistics</h1>
+        <h1 className="feedback">Statistics</h1>
 
-      <Statistic good={0} bad={0} total={0} positivePercentage={0} />
-    </div>
-  );
-};
+        <Statistic newState={this.state} />
+      </div>
+    );
+  }
+}
