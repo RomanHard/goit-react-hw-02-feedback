@@ -13,16 +13,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-content: space-evenly;
 }
 
 .good {
   background-color: #4caf50;
+  height: 50px;
+  width: 15%;
 }
 
 .neutral {
   background-color: #ffeb3b;
+  height: 50px;
+  width: 15%;
 }
 
 .bad {
   background-color: #f44336;
+  height: 50px;
+  width: 15%;
 }
