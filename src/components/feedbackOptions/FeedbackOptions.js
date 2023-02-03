@@ -3,12 +3,6 @@ import PropTypes from 'prop-types';
 import './feedback-module.css';
 
 class FeedbackOptions extends React.Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
-
   onLeaveFeedback = e => {
     const { name } = e.target;
     this.setState(prevState => ({

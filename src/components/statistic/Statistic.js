@@ -11,13 +11,14 @@ class Statistic extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Statistics</h2>
-        <p>Good: {this.state.good}</p>
-        <p>Neutral: {this.state.neutral}</p>
-        <p>Bad: {this.state.bad}</p>
-        <p>Total: {this.countTotalFeedback()}</p>
-        <p>Positive feedback: {this.countPositiveFeedbackPercentage()}%</p>
+      <div className="statistics">
+        <p className="status">Good: {this.state.good}</p>
+        <p className="status">Neutral: {this.state.neutral}</p>
+        <p className="status">Bad: {this.state.bad}</p>
+        <p className="status">Total: {this.countTotalFeedback()}</p>
+        <p className="status">
+          Positive feedback: {this.countPositiveFeedbackPercentage()}%
+        </p>
 
         {/* <button
           type="button"
