@@ -1,5 +1,6 @@
 import React from 'react';
 import './statistic-module.css';
+import PropTypes from 'prop-types';
 
 class Statistic extends React.Component {
   state = {
@@ -7,10 +8,6 @@ class Statistic extends React.Component {
     neutral: 0,
     bad: 0,
   };
-
-  // Good() {
-  //   console.log('Good');
-  // }
 
   render() {
     return (
@@ -31,5 +28,11 @@ class Statistic extends React.Component {
     return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   }
 }
+
+Statistic.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+};
 
 export default Statistic;
