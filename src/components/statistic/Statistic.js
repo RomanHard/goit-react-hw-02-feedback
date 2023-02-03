@@ -8,6 +8,10 @@ class Statistic extends React.Component {
     bad: 0,
   };
 
+  // Good() {
+  //   console.log('Good');
+  // }
+
   render() {
     return (
       <div>

@@ -2,6 +2,9 @@ import React from 'react';
 import Statistic from '../components/statistic/Statistic.js';
 
 export const App = () => {
+
+
+
   return (
     <div>
       <h1 className='feedback'>Give Feedback</h1>
