@@ -3,20 +3,35 @@ import PropTypes from 'prop-types';
 import './feedback-module.css';
 
 class FeedbackOptions extends React.Component {
+  onLeaveFeedback = e => {
+    const { name } = e.target;
+    this.setState(prevState => ({
+      [name]: prevState[name] + 1,
+    }));
+  };
+
   render() {
     return (
       <div className="feedbackOptions">
-        <button type="button" name="good" onClick={this.props.onLeaveFeedback}>
+        <button
+          type="button"
+          className="good"
+          onClick={this.props.onLeaveFeedback}
+        >
           Good
         </button>
         <button
           type="button"
-          name="neutral"
+          className="neutral"
           onClick={this.props.onLeaveFeedback}
         >
           Neutral
         </button>
-        <button type="button" name="bad" onClick={this.props.onLeaveFeedback}>
+        <button
+          type="button"
+          className="bad"
+          onClick={this.props.onLeaveFeedback}
+        >
           Bad
         </button>
       </div>
