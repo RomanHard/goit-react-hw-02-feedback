@@ -11,9 +11,6 @@ export default class App extends React.Component {
     visible: true,
   };
 
-  show = () => {
-    this.setState({ visible: true });
-  };
   hide = () => {
     this.setState({ visible: false });
   };
@@ -25,6 +22,16 @@ export default class App extends React.Component {
     }));
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.good === 0 &&
+      prevState.neutral === 0 &&
+      prevState.bad === 0
+    ) {
+      this.hide();
+    }
+  }
+
   render() {
     return (
       <div className="blocking">
@@ -34,7 +41,7 @@ export default class App extends React.Component {
 
         <h1 className="feedback">Statistics</h1>
 
-        {this.state.visible && <Statistic newState={this.state} />}
+        {!this.state.visible && <Statistic newState={this.state} />}
 
         {this.state.visible && <Notification message="There is no feedback" />}
       </div>
