@@ -1,6 +1,7 @@
 import React from 'react';
 import Statistic from '../components/statistic/Statistic.js';
 import FeedbackOptions from '../components/feedbackOptions/FeedbackOptions.js';
+import Notification from './notification/notification.js';
 
 export default class App extends React.Component {
   state = {
@@ -27,6 +28,8 @@ export default class App extends React.Component {
         <h1 className="feedback">Statistics</h1>
 
         <Statistic newState={this.state} />
+
+        {/* <Notification message="There is no feedback" /> */}
       </div>
     );
   }
