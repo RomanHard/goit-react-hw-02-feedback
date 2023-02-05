@@ -8,7 +8,14 @@ export default class App extends React.Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    visible: false,
+    visible: true,
+  };
+
+  show = () => {
+    this.setState({ visible: true });
+  };
+  hide = () => {
+    this.setState({ visible: false });
   };
 
   onLeaveFeedback = e => {
@@ -20,16 +27,16 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="blocking">
         <h1 className="feedback">Give Feedback</h1>
 
         <FeedbackOptions options={[]} onLeaveFeedback={this.onLeaveFeedback} />
 
         <h1 className="feedback">Statistics</h1>
 
-        <Statistic newState={this.state} />
+        {this.state.visible && <Statistic newState={this.state} />}
 
-        {/* <Notification message="There is no feedback" /> */}
+        {this.state.visible && <Notification message="There is no feedback" />}
       </div>
     );
   }

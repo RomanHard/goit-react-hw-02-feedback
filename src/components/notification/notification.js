@@ -1,10 +1,9 @@
 import React from 'react';
 
-class FeedbackOptions extends React.Component {
+class Notification extends React.Component {
   render() {
-    const { message } = this.props;
-    return <div>{this.props}</div>;
+    return <div className="statistics">"{this.message}"</div>;
   }
 }
 
-export default FeedbackOptions;
+export default Notification;
