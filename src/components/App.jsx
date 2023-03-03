@@ -8,11 +8,6 @@ export default class App extends React.Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    visible: true,
-  };
-
-  hide = () => {
-    this.setState({ visible: false });
   };
 
   onLeaveFeedback = e => {
@@ -22,28 +17,37 @@ export default class App extends React.Component {
     }));
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.good === 0 &&
-      prevState.neutral === 0 &&
-      prevState.bad === 0
-    ) {
-      this.hide();
-    }
-  }
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    const { good } = this.state;
+    const total = this.countTotalFeedback();
+    return Math.round((good / total) * 100);
+  };
 
   render() {
     return (
       <div className="blocking">
         <h1 className="feedback">Give Feedback</h1>
-
-        <FeedbackOptions options={[]} onLeaveFeedback={this.onLeaveFeedback} />
-
-        <h1 className="feedback">Statistics</h1>
-
-        {!this.state.visible && <Statistic newState={this.state} />}
-
-        {this.state.visible && <Notification message="There is no feedback" />}
+        <FeedbackOptions
+          options={this.state}
+          onLeaveFeedback={this.onLeaveFeedback}
+        />
+        <h2 className="feedback">Statistics</h2>
+        {this.countTotalFeedback() === 0 ? (
+          <Notification message="No feedback given" />
+        ) : (
+          <Statistic
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        )}
       </div>
     );
   }

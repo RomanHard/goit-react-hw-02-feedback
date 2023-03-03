@@ -6,27 +6,27 @@ class FeedbackOptions extends React.Component {
   render() {
     const { onLeaveFeedback } = this.props;
     return (
-      <div className="feedbackOptions">
+      <div className="feedback">
         <button
-          name="good"
+          className="feedback__button"
           type="button"
-          className="good"
+          name="good"
           onClick={onLeaveFeedback}
         >
           Good
         </button>
         <button
-          name="neutral"
+          className="feedback__button"
           type="button"
-          className="neutral"
+          name="neutral"
           onClick={onLeaveFeedback}
         >
           Neutral
         </button>
         <button
-          name="bad"
+          className="feedback__button"
           type="button"
-          className="bad"
+          name="bad"
           onClick={onLeaveFeedback}
         >
           Bad
